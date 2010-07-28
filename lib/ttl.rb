@@ -1,5 +1,11 @@
+require 'forwardable'
+
 class TTL
   VERSION = "0.0.1"
+
+  include Enumerable
+  extend Forwardable
+  def_delegators :@hash, :<=>, :eql?, :inspect, :to_s
 
   attr_accessor :ttl
 
@@ -21,6 +27,10 @@ class TTL
     return if @ttl && @ttl <= 0.0
     @access_times[key] = Time.now
     @hash[key] = val
+  end
+
+  def each(&block)
+    @hash.keys.each { |key| block.call(key, self[key]) }
   end
 
   def last_access(key)

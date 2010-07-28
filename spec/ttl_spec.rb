@@ -40,4 +40,21 @@ describe TTL do
 
     once.should be_true
   end
+
+  it "honors the timeout of the value when using each" do
+    subject["a"]= "b"
+
+    once = false
+
+    expect do
+      loop do
+        values = []
+        subject.each { |key, value| values << value }
+        values.should_not be_empty
+        once = true
+      end
+    end.to raise_error
+
+    once.should be_true
+  end
 end
