@@ -1,36 +1,17 @@
-== IRCParser
+== TTL
 
-A library containing a parser for IRC messages and useful definitions
-of errors, replies and other information taken from the RFCs.
+  a = TTL.new(1) # 1 second ttl
+  a[:key] = "value"
+  a[:key] # => "value"
+  sleep(1.01) # wait .. wait .. wait
+  a[:key] # => nil
 
-This library does not deal at all with the networking parts of IRC.
+== TODO
+
+Everything
+Not thread safe?
 
 == AUTHORS
 
-A lot of projects where reviewed while implementing this library. If I
-forget about anyone please ping me so I can include you here.
+Emmanuel Oga
 
-* irk: Parser and other portions taken from
-http://github.com/brodock/irk
-
-Other projects I examined in no particular order
-
-* git.sv.gnu.org/weechat.git
-* github.com/ChaosR/IdleIRCd
-* github.com/RISCfuture/autumn
-* github.com/Sutto/marvin
-* github.com/Syd/twitrc
-* github.com/TheLinx/MoonIRC
-* github.com/alexyoung/twitterircbot
-* github.com/andrzejkrzywda/ruby-ircd
-* github.com/bingos/parse-irc
-* github.com/cho45/net-irc
-* github.com/danopia/ooc-ircd
-* github.com/danopia/rbircd
-* github.com/injekt/cinch
-* github.com/konn/rupircd
-* github.com/myelin/irc-proxy
-* github.com/purzelrakete/mini
-* github.com/tagoh/prune
-* github.com/tsion/on_irc
-* ngircd.barton.de
